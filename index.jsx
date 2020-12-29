@@ -36,6 +36,14 @@ export function SentenceMatcher(fragments, items, style, contentBlock) {
 }
 
 export function MultiHighlightDecorator(config) {
+  const allowedSpanStyles = [
+    "color",
+    "backgroundColor",
+    "borderBottomWidth",
+    "borderBottomColor",
+    "borderBottomStyle",
+    "display",
+  ];
   return new SimpleDecorator(
     function strategy(contentBlock, callback) {
       const fragments = new Fragmenter(config.styles);
@@ -62,7 +70,13 @@ export function MultiHighlightDecorator(config) {
     },
 
     function component(props) {
-      return <span style={{ ...props }}>{props.children}</span>;
+      const styles = {};
+      for (const s of allowedSpanStyles) {
+        if (props[s] !== undefined) {
+          styles[s] = props[s];
+        }
+      }
+      return <span style={styles}>{props.children}</span>;
     }
   );
 }
