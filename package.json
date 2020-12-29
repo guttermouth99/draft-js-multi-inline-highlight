@@ -1,6 +1,6 @@
 {
   "name": "draft-js-multi-inline-highlight",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Allows to do multi selections in DraftJS editor via custom decorator",
   "main": "lib/index.js",
   "scripts": {
@@ -23,13 +23,17 @@
     "url": "https://github.com/buchslava/draft-js-multi-inline-highlight/issues"
   },
   "homepage": "https://github.com/buchslava/draft-js-multi-inline-highlight#readme",
-  "dependencies": {
-    "draft-js": "0.11.7",
-    "draft-js-simpledecorator": "1.0.2",
-    "react": "17.0.1"
+  "peerDependencies": {
+    "draft-js": "^0.11.7",
+    "draft-js-simpledecorator": "^1.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.0.1"
   },
   "devDependencies": {
-    "react-dom": "17.0.1",
+    "draft-js": "^0.11.7",
+    "draft-js-simpledecorator": "^1.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.0.1",
     "react-scripts": "4.0.1",
     "babel-core": "^6.21.0",
     "babel-loader": "^7.1.4",

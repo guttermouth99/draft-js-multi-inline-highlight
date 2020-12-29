@@ -7,7 +7,7 @@ function escapeRegExp(string) {
   return string.replace(/[.*+\-?^${}()|[\]\\]/g, "\\$&");
 }
 
-export function WordMathcher(fragments, items, style, contentBlock) {
+export function WordMatcher(fragments, items, style, contentBlock) {
   const text = contentBlock.getText();
   for (let i = 0; i < items.length; i++) {
     const item = items[i];
@@ -62,13 +62,7 @@ export function MultiHighlightDecorator(config) {
     },
 
     function component(props) {
-      return (
-        <span
-          style={{ color: props.color, backgroundColor: props.backgroundColor }}
-        >
-          {props.children}
-        </span>
-      );
+      return <span style={{ ...props }}>{props.children}</span>;
     }
   );
 }
