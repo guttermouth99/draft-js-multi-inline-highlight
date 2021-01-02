@@ -1,25 +1,32 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-/lib
-
-# misc
+lib/*
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.eslintcache
+.idea
+*.iml
+.yarn
+.yarnrc
+#distTs
 
+# Dependency directory
+# Commenting this out is preferred by some people, see
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
+node_modules
+package-lock.json
+
+# Browserify cache & build files
+bundle.js
+.bundle.js
+
+# build
+/lib/
+.linaria-cache
+
+# NPM debug
+npm-debug.log
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+
+# yarn errors
+yarn-error.log
+
+# next.js
+packages/docs/.next/
+packages/docs/out/

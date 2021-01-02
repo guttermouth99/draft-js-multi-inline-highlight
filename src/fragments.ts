@@ -1,9 +1,25 @@
+import { MultiHighlightStyles } from "src";
+
+const unique = (value: number, index: number, arr: number[]) =>
+  arr.indexOf(value) === index;
+
+export type FragmentRange = [number, number] | [];
+
+export interface FragmentDescriptor {
+  [key: string]: FragmentRange[];
+}
+
 export class Fragmenter {
-  constructor(styles) {
-    this.data = Object.keys(styles).reduce((acc, key) => {
-      acc[key] = [];
-      return acc;
-    }, {});
+  private data: FragmentDescriptor;
+
+  constructor(styles: MultiHighlightStyles) {
+    this.data = Object.keys(styles).reduce(
+      (acc: FragmentDescriptor, key: string) => {
+        acc[key] = [];
+        return acc;
+      },
+      {}
+    );
   }
   getDecoratedRanges() {
     const result = [];
@@ -31,31 +47,34 @@ export class Fragmenter {
       }
     }
   }
-  add(nick, range) {
+  add(nick: string, range: FragmentRange) {
     if (!this.data[nick]) {
       throw Error(`Style ${nick} is undefined`);
     }
     this.data[nick].push(range);
   }
-  getAbsoluteRanges() {
-    let merged = [];
+  private getAbsoluteRanges() {
+    let merged: number[] = [];
     for (const key of Object.keys(this.data)) {
       merged = merged.concat(...this.data[key]);
     }
-    const ranges = [...new Set([...merged])].sort((a, b) => a - b);
+    const ranges = merged.filter(unique).sort((a, b) => a - b);
     const result = [];
     for (let i = 0; i < ranges.length - 1; i++) {
       result.push([ranges[i], ranges[i + 1]]);
     }
     return result;
   }
-  getStylesForRange(range) {
+  private getStylesForRange(range: number[]) {
     const start = range[0];
     const end = range[1];
     const styles = [];
     for (const key of Object.keys(this.data)) {
       if (this.data[key]) {
         for (const r of this.data[key]) {
+          if (r.length !== 2) {
+            continue;
+          }
           if (
             (start >= r[0] && end <= r[1]) ||
             (r[0] >= start && r[1] <= end)
