@@ -1,7 +1,7 @@
 {
   "name": "draft-js-multi-inline-highlight",
   "version": "0.2.0",
-  "description": "Allows to do multi selections in DraftJS editor via custom decorator",
+  "description": "Allows to do multi selections in DraftJS editor via a custom decorator",
   "author": "Vyacheslav Chub <vyacheslav.chub@gmail.com>",
   "bugs": {
     "url": "https://github.com/buchslava/draft-js-multi-inline-highlight/issues"
@@ -9,7 +9,7 @@
   "homepage": "https://github.com/buchslava/draft-js-multi-inline-highlight#readme",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/buchslava/draft-js-multi-inline-highlight.git"
   },
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
@@ -23,6 +23,8 @@
     "draft",
     "react",
     "ux",
+    "edittor",
+    "html",
     "components",
     "highlight",
     "multi-hightlight",
