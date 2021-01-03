@@ -3,6 +3,7 @@
 Allows to do multi selections in DraftJS editor via a custom decorator.
 
 The source for full demo example is [here](https://github.com/buchslava/draft-js-multi-inline-highlight-demo).
+Also, you can try working [example](https://buchslava.github.io/draft-js-multi-inline-highlight-demo).
 
 ## Install
 
