@@ -13,7 +13,7 @@ function getProperties<T extends object>(t: T): T {
 }
 
 export interface MultiHighlightStyle {
-  [key: string]: string;
+  [key: string]: string | number;
 }
 
 export interface MultiHighlightStyles {
