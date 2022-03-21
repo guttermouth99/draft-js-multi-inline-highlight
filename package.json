@@ -43,8 +43,8 @@
   },
   "peerDependencies": {
     "draft-js": "^0.10.1 || ^0.11.0",
-    "react": "^15.5.0 || ^16.0.0-rc",
-    "react-dom": "^15.5.0 || ^16.0.0-rc",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "draft-js-simpledecorator": "^1.0.2"
   },
   "devDependencies": {
